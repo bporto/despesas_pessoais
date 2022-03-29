@@ -7,10 +7,11 @@ class AdaptativeButton extends StatelessWidget {
   final String lable;
   final Function() onPressed;
 
-  AdaptativeButton({
+  const AdaptativeButton({
     required this.lable,
     required this.onPressed,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class AdaptativeButton extends StatelessWidget {
             child: Text(lable),
             onPressed: onPressed,
             color: Colors.purple,
-      padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
           )
         : ElevatedButton(
             onPressed: onPressed,

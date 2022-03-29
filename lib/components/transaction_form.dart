@@ -2,8 +2,6 @@ import 'package:despesas_pessoais/components/adaptative_button.dart';
 import 'package:despesas_pessoais/components/adaptative_data_picker.dart';
 import 'package:despesas_pessoais/components/adaptative_text_field.dart';
 import 'package:despesas_pessoais/resources/strings.dart';
-
-
 import 'package:flutter/material.dart';
 
 class TransactionForm extends StatefulWidget {
@@ -30,8 +28,6 @@ class _TransactionFormState extends State<TransactionForm> {
     widget.onSubmit(title, value, _selectedDate);
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -49,18 +45,19 @@ class _TransactionFormState extends State<TransactionForm> {
               AdaptativeTextField(
                   textController: _titleController,
                   onSubmit: _submitForm,
-                  lable: Strings.TITLE,
+                  lable: Strings.title,
                   keyboardType: TextInputType.text),
               AdaptativeTextField(
                   textController: _valueController,
                   onSubmit: _submitForm,
-                  lable: Strings.VALUE,
+                  lable: Strings.value,
                   keyboardType:
                       const TextInputType.numberWithOptions(decimal: true)),
+
               ///AQUI
               AdaptativeDatePicker(
                   selectedDate: _selectedDate,
-                  onDateChanged: (newDate){
+                  onDateChanged: (newDate) {
                     setState(() {
                       _selectedDate = newDate;
                     });
@@ -69,7 +66,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   AdaptativeButton(
-                    lable: Strings.NEW_TRANSACTION,
+                    lable: Strings.newTransaction,
                     onPressed: _submitForm,
                   ),
                 ],

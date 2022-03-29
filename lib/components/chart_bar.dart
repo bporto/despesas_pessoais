@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
+  final String lable;
+  final double value;
+  final double percentage;
+
   const ChartBar({
     Key? key,
     required this.lable,
     required this.value,
     required this.percentage,
   }) : super(key: key);
-
-  final String lable;
-  final double value;
-  final double percentage;
 
   @override
   Widget build(BuildContext context) {

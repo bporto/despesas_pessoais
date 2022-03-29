@@ -7,13 +7,14 @@ class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
   final void Function(String) onRemove;
 
-
-  const TransactionList(Key? key, this.transactions, this.onRemove)
-      : super(key: key);
+  const TransactionList(
+    Key? key,
+    this.transactions,
+    this.onRemove,
+  ) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     final mediaQuery = MediaQuery.of(context);
 
     return transactions.isEmpty
@@ -24,7 +25,7 @@ class TransactionList extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  Strings.NO_TRANSACTIONS_REGISTERED,
+                  Strings.noTransactionsRegistered,
                   style: Theme.of(context).textTheme.headline6,
                 ),
                 const SizedBox(
@@ -78,7 +79,7 @@ class TransactionList extends StatelessWidget {
                             color: Colors.red,
                           ),
                           label: const Text(
-                            Strings.DELETE,
+                            Strings.delete,
                             style: TextStyle(
                               color: Colors.red,
                             ),

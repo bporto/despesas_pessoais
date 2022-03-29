@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
 
     final PreferredSizeWidget appBar = AppBar(
-      title: const Text(Strings.PERSONAL_EXPENSES),
+      title: const Text(Strings.personalExpenses),
       actions: actions,
     );
 
@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Platform.isIOS
         ? CupertinoPageScaffold(
             navigationBar: CupertinoNavigationBar(
-              middle: Text('Despesas Pessoais'),
+              middle: const Text(Strings.personalExpenses),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: actions,
@@ -172,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
             floatingActionButton: Platform.isIOS
                 ? Container()
                 : FloatingActionButton(
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                     onPressed: () => _openTransactionFormModal(context),
                   ),
             floatingActionButtonLocation:

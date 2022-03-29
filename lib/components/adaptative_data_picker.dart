@@ -1,8 +1,9 @@
 import 'dart:io';
+
 import 'package:despesas_pessoais/resources/strings.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class AdaptativeDatePicker extends StatelessWidget {
   final DateTime selectedDate;
@@ -17,7 +18,7 @@ class AdaptativeDatePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Platform.isIOS
-        ? Container(
+        ? SizedBox(
             height: 120,
             child: CupertinoDatePicker(
                 mode: CupertinoDatePickerMode.date,
@@ -33,14 +34,14 @@ class AdaptativeDatePicker extends StatelessWidget {
                 Expanded(
                   child: Text(
                     selectedDate == null
-                        ? Strings.NO_DATE_SELECTED
-                        : '${Strings.SELECTED_DATE}${DateFormat('dd/MM/y').format(selectedDate)}',
+                        ? Strings.noDateSelected
+                        : '${Strings.selectedDate}${DateFormat('dd/MM/y').format(selectedDate)}',
                   ),
                 ),
                 TextButton(
                   onPressed: () => _showDatePicker(context),
                   child: const Text(
-                    Strings.SELECT_DATE,
+                    Strings.selectDate,
                     style: TextStyle(
                       color: Colors.purple,
                       fontWeight: FontWeight.bold,
@@ -60,9 +61,9 @@ class AdaptativeDatePicker extends StatelessWidget {
       lastDate: DateTime.now(),
     ).then((pickedDate) {
       if (pickedDate != null) {
-        return;
+        onDateChanged(pickedDate);
       }
-      onDateChanged(pickedDate!);
+      return;
     });
   }
 }
